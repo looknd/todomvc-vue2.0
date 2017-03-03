@@ -46,7 +46,15 @@ export default {
 
   data () {
     return {
-      todos: []
+      todos: store.fetch()
+    }
+  },
+
+  // watch changes and save to localStorage
+  watch: {
+    todos: {
+      deep: true,
+      handler: store.save
     }
   },
 
