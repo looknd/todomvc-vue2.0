@@ -1,12 +1,8 @@
 <template>
-  <todo-app></todo-app>
+  <div>
+    <h1>Hello, Vue 2.0!</h1>
+    <router-view class="view"></router-view>
+  </div>
 </template>
-
-<script>
-import TodoApp from './view/TodoApp.vue'
-export default {
-  components: { TodoApp }
-}
-</script>
 
 <style></style>

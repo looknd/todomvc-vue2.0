@@ -36,6 +36,8 @@ let filters = {
 export default {
   name: 'todo-app',
 
+  props: ['visibility'],
+
   components: {
     TodoInput,
     TodoList,
@@ -44,8 +46,7 @@ export default {
 
   data () {
     return {
-      todos: [],
-      visibility: 'all',
+      todos: []
     }
   },
 
