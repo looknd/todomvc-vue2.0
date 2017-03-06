@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer" v-show="todos.length">
+  <footer class="footer" v-show="total > 0">
     <span class="todo-count">
       <strong v-text="remaining"></strong> {{pluralize('item', remaining)}} left
     </span>
@@ -8,7 +8,7 @@
       <li><a href="#/active" :class="{selected: visibility == 'active'}">Active</a></li>
       <li><a href="#/completed" :class="{selected: visibility == 'completed'}">Completed</a></li>
     </ul>
-    <button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
+    <button class="clear-completed" @click="removeCompleted" v-show="total > remaining">
       Clear completed
     </button>
   </footer>
@@ -17,7 +17,7 @@
 <script>
 export default {
   name: 'todo-filter',
-  props: ['todos', 'remaining', 'visibility'],
+  props: ['total', 'remaining', 'visibility'],
 
   methods: {
     removeCompleted() {

@@ -1,5 +1,5 @@
 <template>
-  <section class="main" v-show="todos.length">
+  <section class="main" v-show="total > 0">
     <slot>
       <!-- fallback of all done button -->
     </slot>
@@ -27,7 +27,7 @@
 <script>
 export default {
   name: 'todo-list',
-  props: ['todos', 'filteredTodos'],
+  props: ['total', 'filteredTodos'],
 
   data () {
     return {
@@ -38,7 +38,7 @@ export default {
 
   methods: {
     editTodo(todo) {
-      this.beforeEditCache = todo.title
+      this.beforeEditCache = this.curTitle = todo.title
       this.editedTodo = todo
     },
     removeTodo(todo) {
@@ -63,7 +63,7 @@ export default {
   directives: {
     'todo-focus': function (el, binding) {
       if (binding.value) {
-        el.focus();
+        el.focus()
       }
     }
   }
