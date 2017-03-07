@@ -5,7 +5,7 @@
     </todo-input>
 
     <todo-list
-      :todos="todos"
+      :total="todos.length"
       :filteredTodos="filteredTodos"
       @editTodo="editTodo"
       @removeTodo="removeTodo">
@@ -13,7 +13,7 @@
     </todo-list>
 
     <todo-filter
-      :todos="todos"
+      :total="todos.length"
       :remaining="remaining"
       :visibility="visibility"
       @removeCompleted="removeCompleted">
